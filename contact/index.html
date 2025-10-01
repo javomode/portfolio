@@ -17,17 +17,18 @@
     </header>
 
     <form action="mailto:j9vo@ucsd.edu" method="POST" enctype="text/plain">
-        <label>
-            <input name="email" type="email">Your email</input>
-        </label>
-        <label>
-            <input name="subject">Subject</input>
-        </label>
-        <label>
-            <textarea name="body"></textarea>
-        </label>
-        <button>Submit</button>
-    </form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
 
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+
+    </form>
 </body>
 </html>
