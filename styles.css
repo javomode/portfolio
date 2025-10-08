@@ -6,7 +6,7 @@ body {
 }
 
 :root {
-  --color-accent: oklch(60% 60% 20);
+  --color-accent: background-color: oklch(95% 2% 200);
 }
 
 html {
@@ -21,7 +21,6 @@ nav {
   padding: 0.5em;
   margin-bottom: 1em;
   border-bottom: 1px solid oklch(80% 3% 200);
-  background-color: oklch(95% 2% 200);
 }
 
 nav a {
