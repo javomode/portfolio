@@ -8,6 +8,14 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
 }
 
+:root {
+  --color-accent: oklch(80% 3% 20); /* define accent color once */
+}
+
+html {
+  accent-color: var(--color-accent); /* apply it globally */
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -16,6 +24,7 @@ nav {
   padding: 0.5em;
   margin-bottom: 1em;
   border-bottom: 1px solid oklch(80% 3% 200);
+  background-color: oklch(95% 2% 200);
 }
 
 nav a {
@@ -29,4 +38,4 @@ nav a.current {
   padding-bottom: 0.1em;
 }
 
-
+/* oklch(80% 3% 20) */
