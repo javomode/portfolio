@@ -50,13 +50,15 @@ form {
     font-weight: bold;
   }
 
-  form input, form textarea {
+  form input,
+  form textarea {
     width: 100%;
     box-sizing: border-box;
     font: inherit;
   }
 
-  form input[type="submit"], form input[type="reset"] {
+  form input[type="submit"],
+  form input[type="reset"] {
     grid-column: 1 / -1;
     justify-self: start;
     padding: 0.5em 1em;
@@ -81,7 +83,12 @@ form {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: inherit;
   font-weight: bold;
   line-height: 1.1;
@@ -92,8 +99,13 @@ main.resume {
   section {
     margin-bottom: 2em;
 
-    h2 { font-size: 200%; }
-    h3 { font-size: 130%; }
+    h2 {
+      font-size: 200%;
+    }
+
+    h3 {
+      font-size: 130%;
+    }
 
     article {
       display: grid;
@@ -118,4 +130,3 @@ main.resume {
     }
   }
 }
-

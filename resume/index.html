@@ -1,111 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../styles.css" />
-  <title>Resume</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Resume</title>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../contact/index.html">Contact</a>
-      <a href="../projects/index.html">Projects</a>
-      <a href="index.html" class="current">Resume</a>
-      <a href="https://github.com/javomode" target="_blank">GitHub</a>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../contact/index.html">Contact</a>
+            <a href="../projects/index.html">Projects</a>
+            <a href="index.html" class="current">Resume</a>
+            <a href="https://github.com/javomode" target="_blank">GitHub</a>
+        </nav>
+    </header>
 
-  <main class="resume">
-    <section>
-      <h2>Education</h2>
-      <article>
-      <p><strong>University of California, San Diego</strong></p>
-      <p>B.S. in Data Science, Minor in Cognitive Science ML, Expected June 2027</p>
-      </article>
-    </section>
+    <main class="resume">
+        <section>
+            <h2>Education</h2>
+            <article>
+                <ul>
+                    <li>
+                        <h3><strong>University of California, San Diego</strong></h3>
+                    </li>
+                    <li>
+                        <p>B.S. in Data Science, Minor in Cognitive Science ML, Expected June 2027</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
 
-    <section>
-      <h2>Skills</h2>
-      <article>
-      <ul>
-        <li><strong>Languages & Frameworks:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly, Flask), Java, SQL, Git, REGEX, HTML/CSS (basic)</li>
-        <li><strong>Data Engineering:</strong> ETL pipeline design, data cleaning & transformation, schema modeling (ERD, relational databases), query optimization, feature engineering, normalization</li>
-        <li><strong>Software Development:</strong> OOP (Java, Python), debugging, testing, version control workflows</li>
-      </ul>
-      </article>
-    </section>
+        <section>
+            <h2>Skills</h2>
+            <article>
+                <ul>
+                    <li><strong>Languages & Frameworks:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib,
+                        Seaborn, Plotly, Flask), Java, SQL, Git, REGEX, HTML/CSS (basic)</li>
+                    <li><strong>Data Engineering:</strong> ETL pipeline design, data cleaning & transformation, schema
+                        modeling (ERD, relational databases), query optimization, feature engineering, normalization
+                    </li>
+                    <li><strong>Software Development:</strong> OOP (Java, Python), debugging, testing, version control
+                        workflows</li>
+                </ul>
+            </article>
+        </section>
 
-    <section>
-      <h2>Projects</h2>
+        <section>
+            <h2>Projects</h2>
 
-      <article>
-        <h3>Recipe Ratings Predictor — UCSD (DSC 80 Final Project)</h3>
-        <time>May – Jun 2025</time>
-        <ul>
-          <li>Designed and implemented Python-based data pipeline and ML models on 230K+ Food.com recipes.</li>
-          <li>Developed linear regression and Random Forest models; improved RMSE from 0.7139 → 0.075.</li>
-          <li>Engineered features (complexity, cooking time categories) and conducted bias/fairness testing.</li>
-          <li>Applied modular, reusable code design for data preprocessing and model evaluation.</li>
-          <li><strong>Tools:</strong> Python, Pandas, Scikit-learn, Seaborn, Plotly</li>
-        </ul>
-      </article>
+            <article>
+                <h3>Recipe Ratings Predictor — UCSD (DSC 80 Final Project)</h3>
+                <time>May – Jun 2025</time>
+                <ul>
+                    <li>Designed and implemented Python-based data pipeline and ML models on 230K+ Food.com recipes.
+                    </li>
+                    <li>Developed linear regression and Random Forest models; improved RMSE from 0.7139 → 0.075.</li>
+                    <li>Engineered features (complexity, cooking time categories) and conducted bias/fairness testing.
+                    </li>
+                    <li>Applied modular, reusable code design for data preprocessing and model evaluation.</li>
+                    <li><strong>Tools:</strong> Python, Pandas, Scikit-learn, Seaborn, Plotly</li>
+                </ul>
+            </article>
 
-      <article>
-        <h3>Trail Difficulty Classification — UCSD (COGS 108 Final Project)</h3>
-        <time>May – Jun 2025</time>
-        <ul>
-          <li>Built end-to-end ML pipeline to classify hiking trail difficulty from 3,000+ AllTrails records.</li>
-          <li>Applied feature engineering (gradient, facility count) and tuned models using GridSearchCV.</li>
-          <li>Achieved 81% accuracy with Random Forest, outperforming Logistic Regression baseline.</li>
-          <li><strong>Tools:</strong> Python, Pandas, Scikit-learn, Seaborn</li>
-        </ul>
-      </article>
+            <article>
+                <h3>Trail Difficulty Classification — UCSD (COGS 108 Final Project)</h3>
+                <time>May – Jun 2025</time>
+                <ul>
+                    <li>Built end-to-end ML pipeline to classify hiking trail difficulty from 3,000+ AllTrails records.
+                    </li>
+                    <li>Applied feature engineering (gradient, facility count) and tuned models using GridSearchCV.</li>
+                    <li>Achieved 81% accuracy with Random Forest, outperforming Logistic Regression baseline.</li>
+                    <li><strong>Tools:</strong> Python, Pandas, Scikit-learn, Seaborn</li>
+                </ul>
+            </article>
 
-      <article>
-        <h3>Mini ETL Project</h3>
-        <time>Aug 2025 – Present</time>
-        <ul>
-          <li>Designed ETL pipeline to process raw CSV datasets into a relational schema.</li>
-          <li>Implemented transformation logic (handling missing values, normalization, referential integrity).</li>
-          <li>Automated loading into SQL database for downstream querying and analysis.</li>
-          <li><strong>Tools:</strong> Python (Pandas, SQLAlchemy), SQL</li>
-        </ul>
-      </article>
-    </section>
+            <article>
+                <h3>Mini ETL Project</h3>
+                <time>Aug 2025 – Present</time>
+                <ul>
+                    <li>Designed ETL pipeline to process raw CSV datasets into a relational schema.</li>
+                    <li>Implemented transformation logic (handling missing values, normalization, referential
+                        integrity).</li>
+                    <li>Automated loading into SQL database for downstream querying and analysis.</li>
+                    <li><strong>Tools:</strong> Python (Pandas, SQLAlchemy), SQL</li>
+                </ul>
+            </article>
+        </section>
 
-    <section>
-      <h2>Work Experience</h2>
+        <section>
+            <h2>Work Experience</h2>
 
-      <article>
-        <h3>San Diego County Taxpayers Association — Data Science Intern</h3>
-        <time>Oct 2024 – Jan 2025</time>
-        <ul>
-          <li>Compiled datasets from archives and APIs into standardized CSV files for analysis.</li>
-          <li>Contributed to early-stage database planning and automation tools (scrapers).</li>
-          <li>Communicated database scalability/feasibility to leadership, influencing technical planning.</li>
-        </ul>
-      </article>
+            <article>
+                <h3>San Diego County Taxpayers Association — Data Science Intern</h3>
+                <time>Oct 2024 – Jan 2025</time>
+                <ul>
+                    <li>Compiled datasets from archives and APIs into standardized CSV files for analysis.</li>
+                    <li>Contributed to early-stage database planning and automation tools (scrapers).</li>
+                    <li>Communicated database scalability/feasibility to leadership, influencing technical planning.
+                    </li>
+                </ul>
+            </article>
 
-      <article>
-        <h3>QWENCH Juice Bar & DRNK Coffee + Tea — Front of House Associate</h3>
-        <time>Nov 2022 – Jun 2023</time>
-        <ul>
-          <li>Improved workflow efficiency by suggesting and testing process changes.</li>
-          <li>Trained and mentored team members, ensuring compliance with operational standards.</li>
-        </ul>
-      </article>
+            <article>
+                <h3>QWENCH Juice Bar & DRNK Coffee + Tea — Front of House Associate</h3>
+                <time>Nov 2022 – Jun 2023</time>
+                <ul>
+                    <li>Improved workflow efficiency by suggesting and testing process changes.</li>
+                    <li>Trained and mentored team members, ensuring compliance with operational standards.</li>
+                </ul>
+            </article>
 
-      <article>
-        <h3>DC Donut Cafe — Front of House Associate</h3>
-        <time>Aug 2021 – Sep 2022 | Granada Hills, CA</time>
-        <ul>
-          <li>Created a digital inventory checklist system to streamline supply tracking.</li>
-          <li>Trained staff and supervised closing duties to maintain operational consistency.</li>
-        </ul>
-      </article>
-    </section>
-  </main>
+            <article>
+                <h3>DC Donut Cafe — Front of House Associate</h3>
+                <time>Aug 2021 – Sep 2022 | Granada Hills, CA</time>
+                <ul>
+                    <li>Created a digital inventory checklist system to streamline supply tracking.</li>
+                    <li>Trained staff and supervised closing duties to maintain operational consistency.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
 </body>
+
 </html>
