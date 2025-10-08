@@ -1,5 +1,16 @@
+body {
+  font: 100%/1.5 system-ui;
+  max-width: 960px;
+  margin: 0 auto;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+}
+
 :root {
   --color-accent: oklch(60% 60% 20);
+}
+
+html {
+  accent-color: var(--color-accent);
 }
 
 nav {
