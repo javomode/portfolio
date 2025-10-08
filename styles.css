@@ -13,8 +13,6 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 1.5em;
-  text-decoration: none;
-  color: inherit;
   padding: 0.5em;
   margin-bottom: 1em;
   border-bottom: 1px solid oklch(80% 3% 200);
@@ -25,9 +23,10 @@ nav a {
   color: inherit;
 }
 
-.current {
+nav a.current {
   font-weight: bold;
-  border-bottom: 1px solid oklch(80% 3% 200);
-  padding-bottom: 0.4em;
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: 0.1em;
 }
+
 
