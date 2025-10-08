@@ -1,5 +1,5 @@
 body {
-  font: 100%/1.5 Segoe UI, sans-serif;
+  font: 100%/1.5 "Segoe UI", sans-serif;
   max-width: 960px;
   margin: 0 auto;
   margin-inline: max(1em, (100% - 100ch) / 2);
