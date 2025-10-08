@@ -1,7 +1,4 @@
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
   font: 100%/1.5 system-ui;
   max-width: 960px;
   margin: 0 auto;
@@ -9,11 +6,11 @@ body {
 }
 
 :root {
-  --color-accent: oklch(80% 3% 20); /* define accent color once */
+  --color-accent: oklch(80% 3% 20);
 }
 
 html {
-  accent-color: var(--color-accent); /* apply it globally */
+  accent-color: var(--color-accent);
 }
 
 nav {
@@ -30,12 +27,14 @@ nav {
 nav a {
   text-decoration: none;
   color: inherit;
+  padding-bottom: 0.1em;
 }
 
 nav a.current {
   font-weight: bold;
   border-bottom: 0.4em solid oklch(80% 3% 200);
-  padding-bottom: 0.1em;
 }
 
-/* oklch(80% 3% 20) */
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+}
