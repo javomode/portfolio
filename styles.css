@@ -21,66 +21,47 @@ nav {
   padding: 0.5em;
   margin-bottom: 1em;
   border-bottom: 1px solid oklch(80% 3% 200);
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 0.1em;
+
+    &.current {
+      font-weight: bold;
+      border-bottom: 0.4em solid oklch(80% 3% 200);
+    }
+
+    &:hover {
+      border-bottom: 0.4em solid var(--color-accent);
+    }
+  }
 }
 
-nav a {
-  text-decoration: none;
-  color: inherit;
-  padding-bottom: 0.1em;
-}
-
-nav a.current {
-  font-weight: bold;
-  border-bottom: 0.4em solid oklch(80% 3% 200);
-}
-
-nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-}
 
 form {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.5em 1em;
   align-items: center;
-}
 
-form label {
-  justify-self: end;
-  font-weight: bold;
-}
+  label {
+    justify-self: end;
+    font-weight: bold;
+  }
 
-form input,
-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  font: inherit;
-}
+  form input, form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+  }
 
-form input[type="submit"],
-form input[type="reset"] {
-  grid-column: 1 / -1;
-  justify-self: start;
-  padding: 0.5em 1em;
+  form input[type="submit"], form input[type="reset"] {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 0.5em 1em;
+  }
 }
-
-/* .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1em;
-}
-
-.projects article {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  gap: 1em;
-}
-
-.projects article h2 {
-  margin: 0;
-}
-*/
 
 .projects {
   display: grid;
@@ -105,5 +86,36 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.1;
   text-wrap: balance;
+}
+
+main.resume {
+  section {
+    margin-bottom: 2em;
+
+    h2 { font-size: 200%; }
+    h3 { font-size: 130%; }
+
+    article {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 0.5em;
+      padding: 0.5em 0;
+      border-bottom: 1px solid #ccc;
+
+      h3 {
+        margin: 0;
+      }
+
+      time {
+        font-size: 0.9em;
+        color: #555;
+      }
+
+      ul {
+        padding-left: 1.2em;
+        margin: 0.5em 0;
+      }
+    }
+  }
 }
 
