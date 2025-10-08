@@ -64,7 +64,7 @@ form input[type="reset"] {
   padding: 0.5em 1em;
 }
 
-.projects {
+/* .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
@@ -80,3 +80,30 @@ form input[type="reset"] {
 .projects article h2 {
   margin: 0;
 }
+*/
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+
+  article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 1em;
+
+    h2 {
+      margin: 0;
+      font-size: 150%;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
