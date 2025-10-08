@@ -67,7 +67,6 @@ form input[type="reset"] {
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  grid-template-rows: auto;
   gap: 1em;
 }
 
@@ -78,6 +77,6 @@ form input[type="reset"] {
   gap: 1em;
 }
 
-.projects h2 {
+.projects article h2 {
   margin: 0;
 }
