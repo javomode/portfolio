@@ -39,9 +39,21 @@ nav a:hover {
 }
 
 form {
-  font: inherit;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  margin-block: 1em;
+  display: grid;
+  grid-template-columns: auto 1fr.auto
+  gap: 1em;
+}
+
+form label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  font-weight: bold;
+}
+
+form input[type="submit"] {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-row: -1 / -1;
+  font-weight: bold;
 }
