@@ -41,7 +41,7 @@ nav a:hover {
 form {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.25em 0.5em;
+  gap: 0.5em 1em;
   align-items: center;
 }
 
@@ -62,4 +62,9 @@ form input[type="reset"] {
   grid-column: 1 / -1;
   justify-self: start;
   padding: 0.5em 1em;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 }
