@@ -41,18 +41,17 @@ nav a:hover {
 form {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1em;
+  gap: 0.25em 0.5em;
+  align-items: center;
 }
 
 form label {
-  display: grid;
-  grid-column: 1 / -1;
+  justify-self: end;
   font-weight: bold;
 }
 
 form input,
 form textarea {
-  display: block;
   width: 100%;
   box-sizing: border-box;
   font: inherit;
@@ -62,4 +61,5 @@ form input[type="submit"],
 form input[type="reset"] {
   grid-column: 1 / -1;
   justify-self: start;
+  padding: 0.5em 1em;
 }
