@@ -27,7 +27,7 @@ nav a {
 
 .current {
   font-weight: bold;
-  border-bottom: 0.4em solid;
+  border-bottom: 1px solid oklch(80% 3% 200);
   padding-bottom: 0.4em;
 }
 
