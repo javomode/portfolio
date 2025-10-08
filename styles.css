@@ -8,3 +8,23 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
 }
 
+nav {
+  display: flex;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200)
+}
+
+.current {
+  font-weight: bold;
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.4em;
+  border-bottom-style: solid;
+}
+
