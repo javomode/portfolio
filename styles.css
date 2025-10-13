@@ -11,33 +11,52 @@ body {
 
 html {
   accent-color: var(--color-accent);
+  color-scheme: light dark;
+  
 }
 
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5em;
+  gap: 2.5em;
   padding: 0.5em;
-  margin-bottom: 1em;
-  border-bottom: 1px solid oklch(80% 3% 200);
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    padding-bottom: 0.1em;
-
-    &.current {
-      font-weight: bold;
-      border-bottom: 0.4em solid oklch(80% 3% 200);
-    }
-
-    &:hover {
-      border-bottom: 0.4em solid var(--color-accent);
-    }
-  }
+  margin-bottom: 0;
+  border-bottom: 2px solid oklch(80% 3% 200 / 30%);
 }
 
+nav a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5em 1em;
+  font-weight: normal;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: oklch(80% 3% 200 / 40%);
+  transition: background-color 0.3s, transform 0.3s;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+nav a:hover,
+nav a.current {
+  font-weight: bold;
+}
+
+nav a:hover::after,
+nav a.current::after {
+  background-color: var(--color-accent);
+  transform: scaleX(1);
+}
 
 form {
   display: grid;
@@ -130,3 +149,21 @@ main.resume {
     }
   }
 }
+
+.color-scheme {
+  position: fixed;          /* stays on screen */
+  top: 1em;
+  right: 1em;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 80%;
+  z-index: 1000;            /* make sure it’s above other elements */
+}
+
+.color-scheme select {
+  margin-left: 0.3em;
+  font-size: 80%;
+  font-family: inherit;
+  padding: 0.2em;
+}
+
