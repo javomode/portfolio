@@ -4,11 +4,21 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
+// let pages = [
+//   { url: "/", title: "Home" },
+//   { url: "/projects/", title: "Projects" },
+//   { url: "/resume/", title: "Resume" },
+//   { url: "/contact/", title: "Contact" },
+//   { url: "https://github.com/javomode", title: "GitHub", external: true },
+// ];
+
+let repo = "portfolio";
+
 let pages = [
-  { url: "./", title: "Home" },
-  { url: "./projects/", title: "Projects" },
-  { url: "./resume/", title: "Resume" },
-  { url: "./contact/", title: "Contact" },
+  { url: `/${repo}/`, title: "Home" },
+  { url: `/${repo}/projects/`, title: "Projects" },
+  { url: `/${repo}/resume/`, title: "Resume" },
+  { url: `/${repo}/contact/`, title: "Contact" },
   { url: "https://github.com/javomode", title: "GitHub", external: true },
 ];
 
