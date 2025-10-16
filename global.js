@@ -12,15 +12,32 @@ function $$(selector, context = document) {
 //   { url: "https://github.com/javomode", title: "GitHub", external: true },
 // ];
 
-let repo = "portfolio";
+// let repo = "portfolio";
 
+// let pages = [
+//   { url: `/${repo}/`, title: "Home" },
+//   { url: `/${repo}/projects/`, title: "Projects" },
+//   { url: `/${repo}/resume/`, title: "Resume" },
+//   { url: `/${repo}/contact/`, title: "Contact" },
+//   { url: "https://github.com/javomode", title: "GitHub", external: true },
+// ];
+
+// Detect if running on GitHub Pages
+const isGithubPages = window.location.hostname.includes("github.io");
+const repo = "portfolio";
+
+// Base path depending on environment
+const basePath = isGithubPages ? `/${repo}` : "";
+
+// Define pages with basePath
 let pages = [
-  { url: `/${repo}/`, title: "Home" },
-  { url: `/${repo}/projects/`, title: "Projects" },
-  { url: `/${repo}/resume/`, title: "Resume" },
-  { url: `/${repo}/contact/`, title: "Contact" },
+  { url: `${basePath}/index.html`, title: "Home" },
+  { url: `${basePath}/projects/`, title: "Projects" },
+  { url: `${basePath}/resume/`, title: "Resume" },
+  { url: `${basePath}/contact/`, title: "Contact" },
   { url: "https://github.com/javomode", title: "GitHub", external: true },
 ];
+
 
 let nav = document.createElement("nav");
 document.body.prepend(nav);
