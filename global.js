@@ -1,121 +1,121 @@
 console.log("IT’S ALIVE!");
 
-function $$(selector, context = document) {
-  return Array.from(context.querySelectorAll(selector));
-}
-
-// let pages = [
-//   { url: "/", title: "Home" },
-//   { url: "/projects/", title: "Projects" },
-//   { url: "/resume/", title: "Resume" },
-//   { url: "/contact/", title: "Contact" },
-//   { url: "https://github.com/javomode", title: "GitHub", external: true },
-// ];
-
-// let repo = "portfolio";
-
-// let pages = [
-//   { url: `/${repo}/`, title: "Home" },
-//   { url: `/${repo}/projects/`, title: "Projects" },
-//   { url: `/${repo}/resume/`, title: "Resume" },
-//   { url: `/${repo}/contact/`, title: "Contact" },
-//   { url: "https://github.com/javomode", title: "GitHub", external: true },
-// ];
-
-// Detect if running on GitHub Pages
-const isGithubPages = window.location.hostname.includes("github.io");
-const repo = "portfolio";
-
-// Base path depending on environment
-const basePath = isGithubPages ? `/${repo}` : "";
-
-// Define pages with basePath
-let pages = [
-  { url: `${basePath}/index.html`, title: "Home" },
-  { url: `${basePath}/projects/`, title: "Projects" },
-  { url: `${basePath}/resume/`, title: "Resume" },
-  { url: `${basePath}/contact/`, title: "Contact" },
-  { url: "https://github.com/javomode", title: "GitHub", external: true },
-];
-
-
-let nav = document.createElement("nav");
-document.body.prepend(nav);
-
-for (let p of pages) {
-  let link = document.createElement("a");
-  link.href = p.url;
-  link.textContent = p.title;
-
-  // make external links open in new tab
-  if (p.external) {
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
+// Nav, color scheme, form handling — runs automatically
+export function initGlobal() {
+  function $$(selector, context = document) {
+    return Array.from(context.querySelectorAll(selector));
   }
 
-  nav.appendChild(link);
+  // Detect if running on GitHub Pages
+  const isGithubPages = window.location.hostname.includes("github.io");
+  const repo = "portfolio";
+
+  // Base path depending on environment
+  const basePath = isGithubPages ? `/${repo}` : "";
+
+  // Define pages
+  let pages = [
+    { url: `${basePath}/index.html`, title: "Home" },
+    { url: `${basePath}/projects/`, title: "Projects" },
+    { url: `${basePath}/resume/`, title: "Resume" },
+    { url: `${basePath}/contact/`, title: "Contact" },
+    { url: "https://github.com/javomode", title: "GitHub", external: true },
+  ];
+
+  let nav = document.createElement("nav");
+  document.body.prepend(nav);
+
+  for (let p of pages) {
+    let link = document.createElement("a");
+    link.href = p.url;
+    link.textContent = p.title;
+
+    if (p.external) {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
+    nav.appendChild(link);
+  }
+
+  // highlight current page
+  let navLinks = $$("nav a");
+  let currentLink = navLinks.find(
+    (a) => a.host === location.host && a.pathname === location.pathname
+  );
+  currentLink?.classList.add("current");
+
+  // color scheme
+  document.body.insertAdjacentHTML(
+    'afterbegin',
+    `<label class="color-scheme">Theme:
+      <select>
+        <option value="light dark">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>`
+  );
+  const select = document.querySelector('.color-scheme select');
+
+  function setColorScheme(theme) {
+    document.documentElement.style.setProperty('color-scheme', theme);
+    select.value = theme;
+    localStorage.colorScheme = theme;
+  }
+
+  if ('colorScheme' in localStorage) {
+    setColorScheme(localStorage.colorScheme);
+  } else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setColorScheme(prefersDark ? 'dark' : 'light');
+  }
+
+  select.addEventListener('input', (event) => {
+    setColorScheme(event.target.value);
+  });
+
+  // email form
+  const form = document.querySelector("form");
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = encodeURIComponent(data.get("name") || "");
+    const email = encodeURIComponent(data.get("email") || "");
+    const message = encodeURIComponent(data.get("message") || "");
+    const subject = `Message from ${name}`;
+    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+    window.location.href = `mailto:j9vo@ucsd.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  });
 }
 
-// highlight current page (internal links only)
-let navLinks = $$("nav a");
-let currentLink = navLinks.find(
-  (a) => a.host === location.host && a.pathname === location.pathname
-);
-currentLink?.classList.add("current");
-
-// color scheme selector
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  `
-	<label class="color-scheme">
-		Theme:
-		<select>
-            <option value="light dark">Automatic</option>
-			<option value="light">Light</option>
-			<option value="dark">Dark</option>
-		</select>
-	</label>`,
-);
-
-const select = document.querySelector('.color-scheme select');
-
-// apply color scheme and save to localStorage
-function setColorScheme(theme) {
-  document.documentElement.style.setProperty('color-scheme', theme);
-  select.value = theme;
-  localStorage.colorScheme = theme;
+// reusable functions
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
+    return await response.json();
+  } catch (err) {
+    console.error('Error fetching JSON:', err);
+  }
 }
 
-// page load: check localStorage or system preference
-if ('colorScheme' in localStorage) {
-  setColorScheme(localStorage.colorScheme);
-} else {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  setColorScheme(prefersDark ? 'dark' : 'light');
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = '';
+  if (!projects || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects found.</p>';
+    return;
+  }
+  for (const project of projects) {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+    containerElement.appendChild(article);
+  }
 }
 
-// handle user changes
-select.addEventListener('input', (event) => {
-  setColorScheme(event.target.value);
-});
-
-
-// handle email form submissions
-const form = document.querySelector("form");
-
-form?.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const data = new FormData(form);
-
-  const name = encodeURIComponent(data.get("name") || "");
-  const email = encodeURIComponent(data.get("email") || "");
-  const message = encodeURIComponent(data.get("message") || "");
-
-  const subject = `Message from ${name}`;
-  const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-
-  const mailto = `mailto:j9vo@ucsd.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-  window.location.href = mailto;
-});
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
