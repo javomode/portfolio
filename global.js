@@ -22,19 +22,22 @@ export function initGlobal() {
     { url: "https://github.com/javomode", title: "GitHub", external: true },
   ];
 
-  let nav = document.createElement("nav");
-  document.body.prepend(nav);
+  // create navbar if it doesn't exist
+  if (!document.querySelector("nav")) {
+    let nav = document.createElement("nav");
+    document.body.prepend(nav);
 
-  for (let p of pages) {
-    let link = document.createElement("a");
-    link.href = p.url;
-    link.textContent = p.title;
+    for (let p of pages) {
+      let link = document.createElement("a");
+      link.href = p.url;
+      link.textContent = p.title;
 
-    if (p.external) {
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
+      if (p.external) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+      nav.appendChild(link);
     }
-    nav.appendChild(link);
   }
 
   // highlight current page
@@ -44,25 +47,34 @@ export function initGlobal() {
   );
   currentLink?.classList.add("current");
 
-  // color scheme
-  document.body.insertAdjacentHTML(
-    'afterbegin',
-    `<label class="color-scheme">Theme:
-      <select>
-        <option value="light dark">Automatic</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </label>`
-  );
+  // insert color scheme switcher if it doesn't exist
+  if (!document.querySelector(".color-scheme")) {
+    const colorSwitcherHTML = `
+<label class="color-scheme">Theme:
+  <select>
+    <option value="light dark">Automatic</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+</label>`;
+    document.body.insertAdjacentHTML('afterbegin', colorSwitcherHTML);
+  }
+
   const select = document.querySelector('.color-scheme select');
 
   function setColorScheme(theme) {
-    document.documentElement.style.setProperty('color-scheme', theme);
+    if (theme === 'dark') {
+      document.body.style.backgroundColor = '#111';
+      document.body.style.color = '#eee';
+    } else {
+      document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'black';
+    }
     select.value = theme;
     localStorage.colorScheme = theme;
   }
 
+  // initialize theme
   if ('colorScheme' in localStorage) {
     setColorScheme(localStorage.colorScheme);
   } else {
@@ -70,6 +82,7 @@ export function initGlobal() {
     setColorScheme(prefersDark ? 'dark' : 'light');
   }
 
+  // event listener for dropdown
   select.addEventListener('input', (event) => {
     setColorScheme(event.target.value);
   });
@@ -120,7 +133,6 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.appendChild(article);
   }
 }
-
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);

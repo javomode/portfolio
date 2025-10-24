@@ -3,6 +3,8 @@ body {
   max-width: 960px;
   margin: 0 auto;
   margin-inline: max(1em, (100% - 100ch) / 2);
+  background-color: white; /* add this */
+  color: black;            /* add this */
 }
 
 :root {
@@ -63,44 +65,46 @@ form {
   grid-template-columns: auto 1fr;
   gap: 0.5em 1em;
   align-items: center;
-
-  label {
-    justify-self: end;
-    font-weight: bold;
-  }
-
-  form input,
-  form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    font: inherit;
-  }
-
-  form input[type="submit"],
-  form input[type="reset"] {
-    grid-column: 1 / -1;
-    justify-self: start;
-    padding: 0.5em 1em;
-  }
 }
+
+form label {
+  justify-self: end;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0.5em 1em;
+}
+
 
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
-
-  article {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-    gap: 1em;
-
-    h2 {
-      margin: 0;
-      font-size: 150%;
-    }
-  }
 }
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em;
+}
+
+.projects article h2 {
+  margin: 0;
+  font-size: 150%;
+}
+
 
 h1,
 h2,
