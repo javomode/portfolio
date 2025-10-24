@@ -1,61 +1,73 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "Portfolio",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae minima harum atque! Blanditiis excepturi optio illum exercitationem ratione cum, corporis hic? Tempore quidem perspiciatis vel fugit incidunt culpa dolorem totam."
+        "description": "This very site is a portfolio project for DSC 106 at UCSD. It showcases various web development skills including HTML, CSS, JavaScript, and JSON data handling."
     },
     {
-        "title": "Alias illum repellendus debitis.",
+        "title": "Platzi-pipline",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Enim a qui magni unde temporibus laboriosam doloremque id ea labore, iure quasi eos cum voluptatem exercitationem illum explicabo nulla suscipit quisquam? Atque sint non inventore nobis provident asperiores explicabo."
+        "description": "Ongoing project to build a data pipeline that extracts, transforms, and loads data from various sources into a centralized data warehouse for analysis and reporting."
     },
     {
-        "title": "Voluptate in hic itaque!",
+        "title": "Recipe ratings from food.com",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "In eligendi neque optio voluptas necessitatibus esse aspernatur aliquid dicta, omnis libero ab officiis iure explicabo a delectus ducimus rerum tempora quae. Est modi, aut ab aliquid a quisquam velit!"
+        "description": "A data analysis projject that involves scraping recipe ratings from food.com, cleaning the data, and performing exploratory data analysis to uncover trends and insights about popular recipes. Project for DSC 80 at UCSD."
     },
     {
-        "title": "Harum necessitatibus illum libero.",
+        "title": "Trail Difficulty Classification",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Dolorum sint quia officiis asperiores ea, explicabo rerum consectetur non ratione obcaecati fugiat voluptatum sequi assumenda, velit, nemo voluptatibus? Eligendi culpa officia quia debitis, dolores est quidem et a quasi."
+        "description": "A machine learning project that classifies hiking trail difficulties based on various features such as elevation gain, distance, and terrain type. Utilizes algorithms like decision trees and random forests to predict trail difficulty levels. Group project for COGS 108 at UCSD"
     },
     {
-        "title": "Sequi, debitis. Quo, quos!",
+        "title": "Gym Tracker App",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Perspiciatis dolorem ipsa at, quia error porro iste cupiditate voluptas, rem tenetur itaque non unde totam! Accusantium expedita ex exercitationem facere aliquid. Quis, repellat provident? Nemo consequatur dolorem ea iusto."
+        "description": "Paused. A mobile application designed to help users track their gym workouts, set fitness goals, and monitor progress over time. Features include exercise logging, workout plans, and performance analytics. Personal project."
     },
     {
-        "title": "Accusamus sed fuga expedita.",
+        "title": "Bill Splitter App",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Consectetur commodi nihil at excepturi nemo optio rem incidunt quasi modi. Quis aliquid eaque temporibus tempora eligendi, nihil culpa porro corrupti, repudiandae facilis quae? Ex fuga dolorum ratione illum animi."
+        "description": "Paused. A web application that allows users to easily split bills among friends or roommates. Users can input expenses, assign them to individuals, and calculate each person's share, including tips and taxes. Personal project."
     },
     {
-        "title": "Soluta deleniti aperiam ad.",
+        "title": "Image Alteration and Classification",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quidem similique ducimus adipisci nisi, quia placeat, voluptatem deleniti magni illum tempora modi facere officiis reiciendis officia, vero nemo ipsum. Ipsum vero sequi saepe laborum nemo, aspernatur temporibus quidem harum."
+        "description": "A computer vision project that involves altering images using various filters and transformations, followed by classifying the altered images using convolutional neural networks (CNNs). The project aims to explore the effects of image alterations on classification accuracy. Project for DSC 20"
     },
     {
         "title": "Iure, laudantium facere. Facilis.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Tempore dicta eligendi dolor nihil temporibus voluptatem natus corrupti quidem, unde dolorem odit repellendus beatae impedit aliquam illum aliquid totam praesentium provident repellat est explicabo veritatis harum. Fugit, blanditiis tenetur?"
     },
     {
         "title": "Reiciendis necessitatibus iusto reprehenderit.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Laudantium natus laborum, reprehenderit aliquam accusamus maiores quia temporibus ab saepe vel exercitationem facilis quod, alias obcaecati assumenda, id deserunt possimus placeat explicabo numquam quo optio voluptates eum. Sint, recusandae."
     },
     {
         "title": "Sed quam beatae libero.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Vero, dolores sequi quas similique amet ipsum, suscipit perspiciatis labore modi ad tempora ab dicta tempore id velit eveniet sit unde porro impedit consectetur ea minus deserunt quo. Dolores, assumenda."
     },
     {
         "title": "Optio nostrum similique natus.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Et iste, ullam blanditiis, consectetur aut officia eligendi illum, maxime minima dolore deleniti? Atque sed ad distinctio nemo voluptas sunt, reiciendis aut molestiae reprehenderit inventore eum corrupti? Perspiciatis, exercitationem ex!"
     },
     {
         "title": "Labore perferendis iste asperiores?",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Fugit nulla sed quia ratione possimus molestias delectus quis, tempore ducimus excepturi fugiat aliquid architecto consequuntur asperiores fuga nostrum veniam atque suscipit ut dolorum sequi minus quibusdam. Blanditiis, facere illum."
     }

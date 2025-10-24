@@ -101,20 +101,26 @@ export async function fetchJSON(url) {
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
+
   if (!projects || projects.length === 0) {
     containerElement.innerHTML = '<p>No projects found.</p>';
     return;
   }
+
   for (const project of projects) {
     const article = document.createElement('article');
     article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
+      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <${headingLevel}>${project.title}</${headingLevel}>
+        <small style="color: gray;">${project.year}</small>
+      </div>
       <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
     `;
     containerElement.appendChild(article);
   }
 }
+
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
