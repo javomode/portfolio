@@ -1,10 +1,11 @@
+/* =================== General Page Styling =================== */
 body {
   font: 100%/1.5 "Segoe UI", sans-serif;
   max-width: 960px;
   margin: 0 auto;
   margin-inline: max(1em, (100% - 100ch) / 2);
-  background-color: white; /* add this */
-  color: black;            /* add this */
+  background-color: white;
+  color: black;
 }
 
 :root {
@@ -14,9 +15,9 @@ body {
 html {
   accent-color: var(--color-accent);
   color-scheme: light dark;
-  
 }
 
+/* =================== Navigation =================== */
 nav {
   display: flex;
   justify-content: center;
@@ -60,6 +61,7 @@ nav a.current::after {
   transform: scaleX(1);
 }
 
+/* =================== Forms =================== */
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -86,7 +88,7 @@ form input[type="reset"] {
   padding: 0.5em 1em;
 }
 
-
+/* =================== Projects Grid =================== */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -105,7 +107,7 @@ form input[type="reset"] {
   font-size: 150%;
 }
 
-
+/* =================== Headings =================== */
 h1,
 h2,
 h3,
@@ -118,50 +120,50 @@ h6 {
   text-wrap: balance;
 }
 
-main.resume {
-  section {
-    margin-bottom: 2em;
-
-    h2 {
-      font-size: 200%;
-    }
-
-    h3 {
-      font-size: 130%;
-    }
-
-    article {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 0.5em;
-      padding: 0.5em 0;
-      border-bottom: 1px solid #ccc;
-
-      h3 {
-        margin: 0;
-      }
-
-      time {
-        font-size: 0.9em;
-        color: #555;
-      }
-
-      ul {
-        padding-left: 1.2em;
-        margin: 0.5em 0;
-      }
-    }
-  }
+/* =================== Resume Section =================== */
+main.resume section {
+  margin-bottom: 2em;
 }
 
+main.resume section h2 {
+  font-size: 200%;
+}
+
+main.resume section h3 {
+  font-size: 130%;
+}
+
+main.resume section article {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5em;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #ccc;
+}
+
+main.resume section article h3 {
+  margin: 0;
+}
+
+main.resume section article time {
+  font-size: 0.9em;
+  color: #555;
+}
+
+main.resume section article ul {
+  padding-left: 1.2em;
+  margin: 0.5em 0;
+}
+
+/* =================== Color Scheme Selector =================== */
 .color-scheme {
-  position: fixed;          /* stays on screen */
+  position: fixed;
   top: 1em;
   right: 1em;
   font-weight: bold;
   font-family: inherit;
   font-size: 80%;
-  z-index: 1000;            /* make sure it’s above other elements */
+  z-index: 1000;
 }
 
 .color-scheme select {
@@ -171,6 +173,7 @@ main.resume {
   padding: 0.2em;
 }
 
+/* =================== Profile Stats =================== */
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -186,4 +189,83 @@ main.resume {
 #profile-stats dd {
   grid-row: 2;
   margin: 0;
+}
+
+/* =================== Pie Chart & Legend =================== */
+
+/* Container for pie chart + legend */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+/* SVG styling */
+#projects-pie-plot {
+  width: 400px;      /* bigger width */
+  height: 400px;     /* bigger height */
+}
+
+/* Optional: give some extra margin so slices don’t touch edges */
+#projects-pie-plot g {
+  transform: translate(150px, 150px); /* half of width & height */
+}
+
+/* Pie slices */
+path {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+path.selected {
+  transform: scale(1.05);
+  stroke: black;
+  stroke-width: 1px;
+}
+
+/* Legend container */
+.legend {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: none;
+  background: transparent;
+  min-width: 150px;
+}
+
+/* Individual legend items */
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.legend li:hover {
+  background: hsl(220 10% 95%);
+  transform: translateX(2px);
+}
+
+.legend li.selected {
+  font-weight: bold;
+  background: hsl(220 10% 90%);
+}
+
+/* Color swatch in legend */
+.swatch {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  border-radius: 0.25em;
+  background-color: var(--color);
+  flex-shrink: 0;
 }
