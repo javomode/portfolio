@@ -303,5 +303,72 @@ path.selected {
   font-weight: 700;
 }
 
+/* definitions list: 2-col grid */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr; /* dt left, dd right */
+  column-gap: .75rem;
+  row-gap: .25rem;
+  margin: 0;
+  padding: 0;
+}
+
+dl.info dt,
+dl.info dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* make labels less prominent */
+dl.info dt {
+  color: #777;
+  font-weight: 500;
+}
+
+dl.info dd {
+  color: #111;
+  font-weight: 600;
+}
+
+
+/* tooltip */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: white;
+  border: 1px solid #ccc;
+  padding: .5rem .75rem;
+  border-radius: 6px;
+  pointer-events: none;
+  font-size: .875rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / .15);
+  transition: opacity .15s;
+}
+
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
 
 
