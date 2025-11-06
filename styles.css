@@ -269,3 +269,39 @@ path.selected {
   background-color: var(--color);
   flex-shrink: 0;
 }
+
+.stats {
+  border: 2px solid oklch(80% 3% 200 / 30%);
+  border-radius: 0.5em;
+  background: oklch(98% 2% 200 / 15%);
+  padding: 1em;
+  margin: 2em 0;
+}
+
+.stats dt,
+.stats dd {
+  margin: 0;
+  text-align: justify;
+}
+
+.stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 stats → 4 columns */
+  gap: 0.5rem 1rem;
+}
+
+/* Label on top */
+.stats dt {
+  font-weight: bold;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 0.25rem;
+}
+
+.stats dd {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+
+

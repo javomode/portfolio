@@ -15,8 +15,15 @@
         </section>
     </header>
 
+    <dl id="stats" class="stats"></dl>
 
-    <script src="../index.js" type="module" defer></script>
+
+
+    <script type="module">
+        import { initGlobal } from '../global.js';
+        initGlobal();
+    </script>
+    <script src="main.js" type="module" defer></script>
 </body>
 
 </html>
