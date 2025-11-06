@@ -19,6 +19,7 @@ export function initGlobal() {
     { url: `${basePath}/projects/`, title: "Projects" },
     { url: `${basePath}/resume/`, title: "Resume" },
     { url: `${basePath}/contact/`, title: "Contact" },
+    { url: `${basePath}/meta/`, title: "Meta" },
     { url: "https://github.com/javomode", title: "GitHub", external: true },
   ];
 
