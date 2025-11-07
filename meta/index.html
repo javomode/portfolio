@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
     <title>Meta</title>
 </head>
 
@@ -15,39 +15,40 @@
         </section>
     </header>
 
-    <dl id="stats" class="stats"></dl>
+    <!-- Stats Section -->
+    <dl id="stats" class="stats">
+        <!-- JS will append <dt> and <dd> here -->
+    </dl>
 
     <h2>Commits by time of day</h2>
-    <div id="chart">
-        <!-- Add: Time, author, lines edited -->
 
-        <dl id="commit-tooltip" class="info tooltip" hidden>
-            <dt>Commit</dt>
-            <dd>
-                <a href="" id="commit-link" target="_blank"></a>
-            </dd>
+    <div id="chart"></div>
 
-            <dt>Date</dt>
-            <dd id="commit-date"></dd>
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+        <dt>Commit</dt>
+        <dd><a href="" id="commit-link" target="_blank"></a></dd>
 
-            <dt>Time</dt>
-            <dd id="commit-time"></dd>
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
 
-            <dt>Author</dt>
-            <dd id="commit-author"></dd>
+        <dt>Time</dt>
+        <dd id="commit-time"></dd>
 
-            <dt>Lines edited</dt>
-            <dd id="commit-lines-edited"></dd>
-        </dl>
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
 
-    </div>
-            <dt>Date</dt>
-            <dd id="commit-date"></dd>
-        </dl>
+        <dt>Lines edited</dt>
+        <dd id="commit-lines-edited"></dd>
+    </dl>
 
-        </dl>
-    </div>
 
+    <!-- Selection Count -->
+    <p id="selection-count">No commits selected</p>
+
+    <!-- Language Breakdown -->
+    <dl id="language-breakdown" class="stats">
+        <!-- JS will append <dt> and <dd> here -->
+    </dl>
 
 
     <script type="module">

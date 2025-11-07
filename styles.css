@@ -192,8 +192,6 @@ main.resume section article ul {
 }
 
 /* =================== Pie Chart & Legend =================== */
-
-/* Container for pie chart + legend */
 .container {
   display: flex;
   align-items: flex-start;
@@ -203,18 +201,15 @@ main.resume section article ul {
   margin-top: 2em;
 }
 
-/* SVG styling */
 #projects-pie-plot {
-  width: 400px;      /* bigger width */
-  height: 400px;     /* bigger height */
+  width: 400px;
+  height: 400px;
 }
 
-/* Optional: give some extra margin so slices don’t touch edges */
 #projects-pie-plot g {
-  transform: translate(150px, 150px); /* half of width & height */
+  transform: translate(150px, 150px);
 }
 
-/* Pie slices */
 path {
   cursor: pointer;
   transition: transform 0.2s;
@@ -226,7 +221,6 @@ path.selected {
   stroke-width: 1px;
 }
 
-/* Legend container */
 .legend {
   list-style: none;
   padding: 1rem;
@@ -239,7 +233,6 @@ path.selected {
   min-width: 150px;
 }
 
-/* Individual legend items */
 .legend li {
   display: flex;
   align-items: center;
@@ -260,7 +253,6 @@ path.selected {
   background: hsl(220 10% 90%);
 }
 
-/* Color swatch in legend */
 .swatch {
   width: 1em;
   height: 1em;
@@ -270,56 +262,67 @@ path.selected {
   flex-shrink: 0;
 }
 
-.stats {
-  border: 2px solid oklch(80% 3% 200 / 30%);
-  border-radius: 0.5em;
-  background: oklch(98% 2% 200 / 15%);
-  padding: 1em;
-  margin: 2em 0;
-}
+/* =================== Stats & Language Breakdown =================== */
 
-.stats dt,
-.stats dd {
-  margin: 0;
-  text-align: justify;
-}
-
-.stats dl {
+/* Horizontal layout and aesthetic styling */
+.stats,
+#language-breakdown {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 stats → 4 columns */
-  gap: 0.5rem 1rem;
+  grid-auto-flow: column;
+  /* horizontal flow */
+  grid-template-rows: auto auto;
+  /* labels on top, values below */
+  gap: 1rem;
+  padding: 0.8em 1.2em;
+  border: 2px solid oklch(80% 3% 200 / 30%);
+  border-radius: 0.7em;
+  background: oklch(98% 2% 200 / 15%);
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* Label on top */
-.stats dt {
-  font-weight: bold;
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin-bottom: 0.25rem;
+/* Labels (dt) */
+.stats dt,
+#language-breakdown dt {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: oklch(30% 5% 220);
+  /* subtle accent color */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3em;
 }
 
-.stats dd {
-  font-size: 1.7rem;
+/* Values (dd) */
+.stats dd,
+#language-breakdown dd {
   font-weight: 700;
+  font-size: 1.5rem;
+  color: oklch(20% 15% 200);
+  /* darker accent for emphasis */
+  margin: 0;
+  transition: transform 0.2s, color 0.2s;
 }
 
-/* definitions list: 2-col grid */
+/* Optional: subtle hover effect on values */
+.stats dd:hover,
+#language-breakdown dd:hover {
+  color: oklch(10% 20% 220);
+  transform: scale(1.05);
+}
+
+/* =================== Tooltip & Commit Info =================== */
 dl.info {
   display: grid;
-  grid-template-columns: auto 1fr; /* dt left, dd right */
-  column-gap: .75rem;
-  row-gap: .25rem;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.5rem;
+  row-gap: 0.125rem;
   margin: 0;
   padding: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
 }
 
-dl.info dt,
-dl.info dd {
-  margin: 0;
-  padding: 0;
-}
-
-/* make labels less prominent */
 dl.info dt {
   color: #777;
   font-weight: 500;
@@ -330,45 +333,65 @@ dl.info dd {
   font-weight: 600;
 }
 
-
-/* tooltip */
-.tooltip {
-  position: fixed;
-  top: 1em;
-  left: 1em;
-  background: white;
-  border: 1px solid #ccc;
-  padding: .5rem .75rem;
-  border-radius: 6px;
-  pointer-events: none;
-  font-size: .875rem;
-  box-shadow: 0 2px 6px rgb(0 0 0 / .15);
-  transition: opacity .15s;
+.tooltip[hidden] {
+  opacity: 0;
+  visibility: hidden;
 }
 
 
+/* tooltip */
+.tooltip {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ccc;
+  padding: 10px;
+  /* pointer-events: none; */
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 4px;
+  font-size: 0.9em;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+#commit-tooltip:not([hidden]) {
+  opacity: 1;
+  display: block;
+}
+
+/* =================== Scatter Plot Circles =================== */
 circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+  pointer-events: visiblePainted;
 }
 
 circle:hover {
   transform: scale(1.5);
 }
 
-dl.info {
-  /* ... other styles ... */
-  transition-duration: 500ms;
-  transition-property: opacity, visibility;
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8;
+    /* 5 + 3 */
+  }
 }
 
-dl.info[hidden]:not(:hover, :focus-within) {
-  opacity: 0;
-  visibility: hidden;
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+  pointer-events: none;
 }
 
+circle.selected {
+  fill: #ff6b6b;
+}
 
-
-
-
+/* overlay rectangle should handle events (so brushing works) */
+.overlay {
+  pointer-events: all;
+}
