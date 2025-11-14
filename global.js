@@ -123,14 +123,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   for (const project of projects) {
     const article = document.createElement('article');
+
+    // If project.url exists, wrap the title in a link; otherwise, just render the title
+    const titleHTML = project.url
+      ? `<a href="${project.url}" target="_blank">${project.title}</a>`
+      : project.title;
+
     article.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: baseline;">
-        <${headingLevel}>${project.title}</${headingLevel}>
-        <small style="color: gray;">${project.year}</small>
-      </div>
-      <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
-    `;
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <${headingLevel}>${titleHTML}</${headingLevel}>
+      <small style="color: gray;">${project.year}</small>
+    </div>
+    <img src="${project.image}" alt="${project.title}">
+    <p>${project.description}</p>
+  `;
+
     containerElement.appendChild(article);
   }
 }

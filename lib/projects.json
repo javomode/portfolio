@@ -1,5 +1,12 @@
 [
     {
+        "title": "Let's Go Biking!",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Interactive visualization of bike traffic around Brooklyn/Cambridge area using D3.js. Project for DSC 106 at UCSD.",
+        "url": "https://javomode.github.io/lets-go-biking/"
+    },
+    {
         "title": "Portfolio",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -64,11 +71,5 @@
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Et iste, ullam blanditiis, consectetur aut officia eligendi illum, maxime minima dolore deleniti? Atque sed ad distinctio nemo voluptas sunt, reiciendis aut molestiae reprehenderit inventore eum corrupti? Perspiciatis, exercitationem ex!"
-    },
-    {
-        "title": "Labore perferendis iste asperiores?",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Fugit nulla sed quia ratione possimus molestias delectus quis, tempore ducimus excepturi fugiat aliquid architecto consequuntur asperiores fuga nostrum veniam atque suscipit ut dolorum sequi minus quibusdam. Blanditiis, facere illum."
     }
 ]
