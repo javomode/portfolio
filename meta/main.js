@@ -79,7 +79,6 @@ function renderCommitInfo(commits) {
     dl.append('dd').text(`${activeHour}:00`);
 }
 
-
 // ===== SCATTER PLOT =====
 function renderScatterPlot(commits) {
     const width = svgWidth;
@@ -280,14 +279,68 @@ function updateBrushedInfo(selected) {
     }
 }
 
+// ===== FILES RENDERING =====
+function updateFiles(filteredCommits) {
+    const container = d3.select('#files');
+    container.html(''); // clear old content
+
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+    if (!filteredCommits || filteredCommits.length === 0) return;
+
+    // Step 1: flatten lines and group by file
+    const lines = filteredCommits.flatMap(d => d.lines).filter(d => d.file);
+    let files = d3.groups(lines, d => d.file)
+        .map(([name, lines]) => ({ name, lines }))
+        .sort((a, b) => b.lines.length - a.lines.length);  // sort descending by line count
+
+    // Step 2: bind files to divs
+    const filesContainer = container.selectAll('div')
+        .data(files, d => d.name)
+        .join(
+            enter => enter.append('div')
+                .style('margin-bottom', '0.5em')
+                .call(div => {
+                    div.append('dt');
+                    div.append('dd');
+                })
+        );
+
+
+    // Step 3: add filename and line count stacked
+    filesContainer.select('dt')
+        .html('') // clear previous
+        .append('div')   // stack container
+        .style('display', 'flex')
+        .style('flex-direction', 'column')
+        .call(div => {
+            div.append('code').text(d => d.name);
+            div.append('small')
+                .text(d => `${d.lines.length} lines`)
+                .style('opacity', 0.6)
+                .style('font-size', '0.8em');
+        });
+
+    // Step 4: add the per-line dots inside <dd>
+    filesContainer.select('dd')
+        .selectAll('div.loc')
+        .data(d => d.lines)
+        .join('div')
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
+}
+
 // ===== MAIN =====
 (async () => {
     const data = await loadData();
     const commits = processCommits(data);
-    renderCommitInfo(data, commits);
-    renderScatterPlot(commits);
 
-    // Slider
+    // Outer-scoped variable for filtered commits
+    let filtered = commits;
+
+    renderCommitInfo(filtered);
+    renderScatterPlot(filtered);
+
     const commitSlider = document.getElementById('commit-progress');
     const commitTimeDisplay = document.getElementById('commit-time');
 
@@ -300,11 +353,14 @@ function updateBrushedInfo(selected) {
         const maxTime = timeScale.invert(progress);
         commitTimeDisplay.textContent = maxTime.toLocaleString();
 
-        const filtered = commits.filter(d => d.datetime <= maxTime);
+        filtered = commits.filter(d => d.datetime <= maxTime);
         updateScatterPlot(filtered);
         renderCommitInfo(filtered);
+        updateFiles(filtered); // update your files here
     }
 
     commitSlider.addEventListener('input', onTimeSliderChange);
     onTimeSliderChange();
+
 })();
+

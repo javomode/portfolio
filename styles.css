@@ -262,54 +262,48 @@ path.selected {
   flex-shrink: 0;
 }
 
-/* =================== Stats & Language Breakdown =================== */
+/* =================== Stats & Language Breakdown (Tighter Version) =================== */
 
-/* Horizontal layout and aesthetic styling */
 .stats,
 #language-breakdown {
   display: grid;
-  grid-auto-flow: column;
-  /* horizontal flow */
-  grid-template-rows: auto auto;
-  /* labels on top, values below */
-  gap: 1rem;
-  padding: 0.8em 1.2em;
+  grid-auto-flow: column; /* keep horizontal flow */
+  grid-template-rows: auto auto; /* labels on top, values below */
+  gap: 0.5rem; /* reduce horizontal gap */
+  padding: 0.4em 0.6em; /* reduce padding */
   border: 2px solid oklch(80% 3% 200 / 30%);
-  border-radius: 0.7em;
+  border-radius: 0.5em;
   background: oklch(98% 2% 200 / 15%);
   text-align: center;
   font-family: "Segoe UI", sans-serif;
+  font-size: 0.9rem; /* slightly smaller text */
 }
 
-/* Labels (dt) */
 .stats dt,
 #language-breakdown dt {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* slightly smaller labels */
   color: oklch(30% 5% 220);
-  /* subtle accent color */
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.3em;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.2em;
 }
 
-/* Values (dd) */
 .stats dd,
 #language-breakdown dd {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* slightly smaller values */
   color: oklch(20% 15% 200);
-  /* darker accent for emphasis */
   margin: 0;
   transition: transform 0.2s, color 0.2s;
 }
 
-/* Optional: subtle hover effect on values */
 .stats dd:hover,
 #language-breakdown dd:hover {
   color: oklch(10% 20% 220);
   transform: scale(1.05);
 }
+
 
 /* =================== Tooltip & Commit Info =================== */
 dl.info {
@@ -433,4 +427,43 @@ circle.selected {
   margin-top: 0.25rem;
   font-size: 0.9rem;
   color: #555;
+}
+
+/* LAB 8 STEP 2  */
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background-color: var(--color);
+  border-radius: 50%;
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.4em;
+  margin-left: 0; 
 }
