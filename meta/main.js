@@ -200,7 +200,8 @@ function updateScatterPlot(commits) {
             enter => enter.append('circle')
                 .attr('cx', d => xScale(d.datetime))
                 .attr('cy', d => yScale(d.hourFrac))
-                .attr('r', d => rScale(d.totalLines))
+                .attr("r", 0) // start from 0
+                // .attr('r', d => rScale(d.totalLines))
                 .attr('fill', 'steelblue')
                 .attr('fill-opacity', 0.7)
                 .on('mouseenter', (event, commit) => {
