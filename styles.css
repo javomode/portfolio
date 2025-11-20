@@ -395,3 +395,37 @@ circle.selected {
 .overlay {
   pointer-events: all;
 }
+
+/* LAB 8, Evolution Visualization */
+
+/* --- Commit slider layout --- */
+.commit-slider-container {
+    display: flex;
+    flex: 1;
+    align-items: baseline;
+    margin: 1rem 0;
+}
+
+/* Make the label span the whole row */
+.commit-slider-container label {
+    display: flex;
+    flex-direction: column; /* time goes below slider */
+    width: 100%;
+    font-weight: 600;
+}
+
+/* Make the slider wide */
+#commit-progress {
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+/* Position the time on the bottom-right of the slider */
+#commit-time {
+    margin-left: auto;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+

@@ -22,6 +22,15 @@
 
     <h2>Commits by time of day</h2>
 
+    <!-- Evolution Visualization slider -->
+    <div class="commit-slider-container">
+        <label for="commit-progress">
+            Show commits until:
+            <input type="range" min="0" max="100" id="commit-progress">
+            <time id="commit-time">–</time>
+        </label>
+    </div>
+
     <div id="chart"></div>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
@@ -32,7 +41,7 @@
         <dd id="commit-date"></dd>
 
         <dt>Time</dt>
-        <dd id="commit-time"></dd>
+        <dd id="tooltip-commit-time"></dd>
 
         <dt>Author</dt>
         <dd id="commit-author"></dd>
