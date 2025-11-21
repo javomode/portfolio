@@ -182,28 +182,23 @@ function renderScatterPlot(commits) {
 }
 
 // ===== UPDATE DOTS =====
-function updateScatterPlot(commits) {
+function updateScatterPlot(visibleCommits) {
     const svg = d3.select('#chart svg#scatter-svg');
     if (svg.empty()) return;
 
-    const { xScale, yScale, rScale, usableArea } = svg.node().__scales__;
-    xScale.domain(d3.extent(commits, d => d.datetime)).nice();
-
-    svg.select('g.x-axis').call(d3.axisBottom(xScale));
-    svg.select('g.y-axis').call(d3.axisLeft(yScale).tickFormat(d => String(d).padStart(2, '0') + ':00'));
-    svg.select('g.y-grid').call(d3.axisLeft(yScale).tickSize(-(usableArea.right - usableArea.left)).tickFormat(''));
-
+    const { xScale, yScale, rScale } = svg.node().__scales__;
     const dotsG = svg.select('g.dots');
+
     dotsG.selectAll('circle')
-        .data(commits, d => d.id)
+        .data(visibleCommits, d => d.id)
         .join(
             enter => enter.append('circle')
                 .attr('cx', d => xScale(d.datetime))
                 .attr('cy', d => yScale(d.hourFrac))
-                .attr("r", 0) // start from 0
-                // .attr('r', d => rScale(d.totalLines))
+                .attr("r", 0)
                 .attr('fill', 'steelblue')
                 .attr('fill-opacity', 0.7)
+                // --- TOOLTIP EVENTS KEPT ---
                 .on('mouseenter', (event, commit) => {
                     d3.select(event.currentTarget).attr('fill-opacity', 1);
                     renderTooltipContent(commit);
@@ -213,7 +208,9 @@ function updateScatterPlot(commits) {
                 .on('mouseleave', (event) => {
                     d3.select(event.currentTarget).attr('fill-opacity', 0.7);
                     updateTooltipVisibility(false);
-                }),
+                })
+                .transition().duration(250)
+                .attr('r', d => rScale(d.totalLines)),
             update => update
                 .attr('cx', d => xScale(d.datetime))
                 .attr('cy', d => yScale(d.hourFrac))
@@ -223,6 +220,8 @@ function updateScatterPlot(commits) {
             exit => exit.remove()
         );
 }
+
+
 
 // ===== TOOLTIP =====
 function renderTooltipContent(commit) {
@@ -317,17 +316,15 @@ function updateFiles(filteredCommits) {
 
 }
 
+let lastRenderedIndex = -1; // Track the last rendered commit index
 
 function onStepEnter(response) {
-    const commit = response.element.__data__;
+    const idx = response.index;
+    const visible = commits.slice(0, idx + 1);
 
-    // Filter all commits up to this commit
-    filtered = commits.filter(d => d.datetime <= commit.datetime);
-
-    // Update scatter plot, stats, and files
-    updateScatterPlot(filtered);
-    renderCommitInfo(filtered);
-    updateFiles(filtered);
+    updateScatterPlot(visible);
+    renderCommitInfo(visible);
+    updateFiles(visible);
 }
 
 // ===== MAIN =====
@@ -337,13 +334,19 @@ let commits = [], filtered = [];
     const data = await loadData();
     commits = processCommits(data);
 
-    // Outer-scoped variable for filtered commits
+    // SORT COMMITS by datetime (oldest -> newest)
+    commits.sort((a, b) => a.datetime - b.datetime);
+
+    // Outer-scoped variable for filtered commits (start with none or all as you prefer)
     filtered = commits;
+
+    // reset the progressive pointer
+    lastRenderedIndex = -1;
 
     renderCommitInfo(filtered);
     renderScatterPlot(filtered);
 
-    // After creating the steps
+    // After creating the steps (now based on sorted commits)
     d3.select('#scatter-story')
         .selectAll('.step')
         .data(commits)
