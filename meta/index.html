@@ -15,34 +15,32 @@
         </section>
     </header>
 
-    <!-- Stats Section -->
-    <dl id="stats" class="stats">
-        <!-- JS will append <dt> and <dd> here -->
-    </dl>
-
-    <h2>Commits by time of day</h2>
-
-    <!-- Evolution Visualization slider -->
-    <div class="commit-slider-container">
-        <label for="commit-progress">
-            Show commits until:
-            <input type="range" min="0" max="100" id="commit-progress">
-            <time id="commit-time">–</time>
-        </label>
-    </div>
-
-    <dl id="files">
-        <div>
-            <dt>
-                <code>{file.name}</code>
-            </dt>
-            <dd>{file.lines.length} lines</dd>
+    <!-- Scrollytelling Section -->
+    <div id="scrolly-1">
+        <!-- LEFT COLUMN: scrolling commit story -->
+        <div id="scatter-story">
+            <!-- JS will generate .step divs here -->
         </div>
 
-    </dl>
+        <!-- RIGHT COLUMN: sticky chart + summaries -->
+        <div id="scatter-plot">
+            <div id="chart"></div>
 
-    <div id="chart"></div>
+            <!-- Tooltip / summary below chart -->
+            <dl id="language-breakdown" class="stats">
+                <dt>Selection</dt>
+                <dd id="selection-count">No lines selected</dd>
+            </dl>
 
+            <!-- Files list below everything -->
+            <dl id="files">
+                <!-- JS will append <dt> and <dd> here -->
+            </dl>
+        </div>
+
+    </div>
+
+    <!-- Commit tooltip -->
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
         <dd><a href="" id="commit-link" target="_blank"></a></dd>
@@ -59,16 +57,6 @@
         <dt>Lines edited</dt>
         <dd id="commit-lines-edited"></dd>
     </dl>
-
-
-    <!-- Selection Count -->
-    <p id="selection-count">No commits selected</p>
-
-    <!-- Language Breakdown -->
-    <dl id="language-breakdown" class="stats">
-        <!-- JS will append <dt> and <dd> here -->
-    </dl>
-
 
     <script type="module">
         import { initGlobal } from '../global.js';

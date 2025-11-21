@@ -1,11 +1,13 @@
 /* =================== General Page Styling =================== */
 body {
   font: 100%/1.5 "Segoe UI", sans-serif;
-  max-width: 960px;
+  max-width: 150ch;
+  /* increased from 100ch */
   margin: 0 auto;
-  margin-inline: max(1em, (100% - 100ch) / 2);
+  margin-inline: max(1em, (100% - 150ch) / 2);
   background-color: white;
   color: black;
+  box-sizing: border-box;
 }
 
 :root {
@@ -91,7 +93,8 @@ form input[type="reset"] {
 /* =================== Projects Grid =================== */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  /* wider for new page width */
   gap: 1em;
 }
 
@@ -202,12 +205,13 @@ main.resume section article ul {
 }
 
 #projects-pie-plot {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  /* bigger for wider page */
+  height: 500px;
 }
 
 #projects-pie-plot g {
-  transform: translate(150px, 150px);
+  transform: translate(250px, 250px);
 }
 
 path {
@@ -262,37 +266,43 @@ path.selected {
   flex-shrink: 0;
 }
 
-/* =================== Stats & Language Breakdown (Tighter Version) =================== */
-
+/* =================== Stats & Language Breakdown =================== */
 .stats,
 #language-breakdown {
   display: grid;
-  grid-auto-flow: column; /* keep horizontal flow */
-  grid-template-rows: auto auto; /* labels on top, values below */
-  gap: 0.5rem; /* reduce horizontal gap */
-  padding: 0.4em 0.6em; /* reduce padding */
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
+  gap: 0.25rem;
+  /* smaller gap */
+  padding: 0.2em 0.4em;
+  /* tighter padding */
   border: 2px solid oklch(80% 3% 200 / 30%);
   border-radius: 0.5em;
   background: oklch(98% 2% 200 / 15%);
   text-align: center;
   font-family: "Segoe UI", sans-serif;
-  font-size: 0.9rem; /* slightly smaller text */
+  font-size: 0.85rem;
+  /* slightly smaller */
 }
 
 .stats dt,
 #language-breakdown dt {
   font-weight: 600;
-  font-size: 0.8rem; /* slightly smaller labels */
+  font-size: 0.75rem;
+  /* slightly smaller */
   color: oklch(30% 5% 220);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.2em;
+  letter-spacing: 0.02em;
+  /* slightly tighter */
+  margin-bottom: 0.1em;
+  /* less vertical spacing */
 }
 
 .stats dd,
 #language-breakdown dd {
   font-weight: 700;
-  font-size: 1.2rem; /* slightly smaller values */
+  font-size: 1rem;
+  /* slightly smaller */
   color: oklch(20% 15% 200);
   margin: 0;
   transition: transform 0.2s, color 0.2s;
@@ -304,6 +314,17 @@ path.selected {
   transform: scale(1.05);
 }
 
+#language-breakdown dt:first-child {
+  grid-column: 1 / -1;
+  /* span full width */
+  font-size: 0.8rem;
+  /* slightly smaller */
+}
+
+#language-breakdown dd:first-child {
+  grid-column: 1 / -1;
+  font-size: 1rem;
+}
 
 /* =================== Tooltip & Commit Info =================== */
 dl.info {
@@ -332,14 +353,11 @@ dl.info dd {
   visibility: hidden;
 }
 
-
-/* tooltip */
 .tooltip {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #ccc;
   padding: 10px;
-  /* pointer-events: none; */
   display: grid;
   grid-template-rows: auto auto;
   grid-gap: 4px;
@@ -359,12 +377,6 @@ circle {
   transform-origin: center;
   transform-box: fill-box;
   pointer-events: visiblePainted;
-
-  @starting-style {
-    r: 0;
-  }
-
-
 }
 
 circle:hover {
@@ -374,7 +386,6 @@ circle:hover {
 @keyframes marching-ants {
   to {
     stroke-dashoffset: -8;
-    /* 5 + 3 */
   }
 }
 
@@ -391,79 +402,108 @@ circle.selected {
   fill: #ff6b6b;
 }
 
-/* overlay rectangle should handle events (so brushing works) */
+/* overlay rectangle should handle events */
 .overlay {
   pointer-events: all;
 }
 
-/* LAB 8, Evolution Visualization */
-
-/* --- Commit slider layout --- */
-.commit-slider-container {
+/* =================== Scrollytelling Section =================== */
+#scrolly-1 {
   display: flex;
-  flex: 1;
-  align-items: baseline;
-  margin: 1rem 0;
+  gap: 1rem;
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 1600px;
 }
 
-/* Make the label span the whole row */
-.commit-slider-container label {
+/* Left column: commit story */
+#scatter-story {
+  flex: 0 0 25%;
+  /* reduced width to give more space to right column */
+  position: relative;
+}
+
+/* Step styling */
+#scatter-story .step {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  /* reduced vertical gap */
+  border-left: 3px solid var(--color-accent);
+  background: oklch(98% 2% 200 / 8%);
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+/* Right column: sticky chart + info */
+#scatter-plot {
+  flex: 1;
+  position: sticky;
+  top: 1rem;
   display: flex;
   flex-direction: column;
-  /* time goes below slider */
+  /* gap: 0.15rem; */
+  /* reduced vertical gap */
+  max-height: 90vh;
+}
+
+/* Chart container */
+#chart {
   width: 100%;
+  flex: 0 0 auto;
+  height: 425px;
+  border: 1px solid oklch(80% 3% 200 / 20%);
+  border-radius: 0.5rem;
+  background: oklch(100% 0% 0 / 5%);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  /* less vertical space to files */
+}
+
+/* Ensure the SVG inside fills the container */
+#chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+#files .file {
+  display: flex;
+  justify-content: space-between;
+  /* name on left, dots on right */
+  align-items: center;
+  /* align dots with file name vertically */
+  margin-bottom: 0.2em;
+  /* vertical spacing between files */
+}
+
+#files .file-left {
+  display: flex;
+  flex-direction: column;
+  /* file name above LOC */
+  justify-content: start;
+}
+
+#files .file-left code {
+  font-family: monospace;
   font-weight: 600;
 }
 
-/* Make the slider wide */
-#commit-progress {
-  width: 100%;
-  margin-top: 0.25rem;
+#files .file-left small {
+  font-size: 0.75em;
+  color: oklch(20% 5% 220);
+  margin-top: 0.05em;
 }
 
-/* Position the time on the bottom-right of the slider */
-#commit-time {
-  margin-left: auto;
-  margin-top: 0.25rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-/* LAB 8 STEP 2  */
-#files {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-
-  > div {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: subgrid;
-  }
-
-  dt {
-    grid-column: 1;
-  }
-
-  dd {
-    grid-column: 2;
-  }
-}
-
-.loc {
-  display: flex;
-  width: 0.5em;
-  aspect-ratio: 1;
-  background-color: var(--color);
-  border-radius: 50%;
-}
-
-dd {
-  grid-column: 2;
+#files .file-right {
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
-  align-content: start;
-  gap: 0.15em;
-  padding-top: 0.4em;
-  margin-left: 0; 
+  gap: 0.1em;
+  /* space between dots */
+}
+
+#files .file-right .loc {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color, steelblue);
+  flex-shrink: 0;
 }
