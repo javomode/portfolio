@@ -94,20 +94,78 @@ form input[type="reset"] {
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  /* wider for new page width */
-  gap: 1em;
+  gap: 1.25rem;
 }
 
 .projects article {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  gap: 1em;
+  min-width: 0;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 15rem;
+  padding: 1.25rem;
+  color: #1f2933;
+  border: 1px solid oklch(80% 5% 200 / 45%);
+  border-top: 4px solid oklch(65% 13% 190);
+  border-radius: 0.65rem;
+  background: #ffffff;
+}
+
+.project-card:hover {
+  border-color: oklch(65% 13% 190);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .projects article h2 {
   margin: 0;
-  font-size: 150%;
+  font-size: 1.35rem;
+  color: #1f2933;
+}
+
+.project-card-header small {
+  flex: 0 0 auto;
+  color: oklch(40% 8% 200);
+  font-weight: 700;
+}
+
+.project-card p {
+  margin: 1rem 0 0;
+  color: oklch(32% 5% 210);
+}
+
+.projects-page {
+  max-width: 110rem;
+}
+
+.projects-intro {
+  max-width: 46rem;
+}
+
+.eyebrow {
+  color: oklch(45% 14% 190);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.search-wrap {
+  max-width: 32rem;
+}
+
+.project-explorer {
+  padding: 1rem;
+  border: 1px solid oklch(80% 5% 200 / 35%);
+  border-radius: 0.65rem;
+  background: oklch(98% 2% 190 / 45%);
 }
 
 /* =================== Headings =================== */
@@ -204,14 +262,21 @@ main.resume section article ul {
   margin-top: 2em;
 }
 
+.container-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 #projects-pie-plot {
-  width: 500px;
-  /* bigger for wider page */
-  height: 500px;
+  width: 250px;
+  height: 250px;
 }
 
 #projects-pie-plot g {
-  transform: translate(250px, 250px);
+  transform: translate(125px, 125px);
 }
 
 path {

@@ -1,6 +1,6 @@
 console.log("IT’S ALIVE!");
 
-// Nav, color scheme, form handling — runs automatically
+// Navigation and color scheme — runs automatically
 export function initGlobal() {
   function $$(selector, context = document) {
     return Array.from(context.querySelectorAll(selector));
@@ -18,8 +18,6 @@ export function initGlobal() {
     { url: `${basePath}/index.html`, title: "Home" },
     { url: `${basePath}/projects/`, title: "Projects" },
     { url: `${basePath}/resume/`, title: "Resume" },
-    { url: `${basePath}/contact/`, title: "Contact" },
-    { url: `${basePath}/meta/`, title: "Meta" },
     { url: "https://github.com/javomode", title: "GitHub", external: true },
   ];
 
@@ -88,18 +86,6 @@ export function initGlobal() {
     setColorScheme(event.target.value);
   });
 
-  // email form
-  const form = document.querySelector("form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = new FormData(form);
-    const name = encodeURIComponent(data.get("name") || "");
-    const email = encodeURIComponent(data.get("email") || "");
-    const message = encodeURIComponent(data.get("message") || "");
-    const subject = `Message from ${name}`;
-    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-    window.location.href = `mailto:j9vo@ucsd.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-  });
 }
 
 // reusable functions
@@ -123,6 +109,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   for (const project of projects) {
     const article = document.createElement('article');
+    article.className = 'project-card';
 
     // If project.url exists, wrap the title in a link; otherwise, just render the title
     const titleHTML = project.url
@@ -130,11 +117,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       : project.title;
 
     article.innerHTML = `
-    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+    <div class="project-card-header">
       <${headingLevel}>${titleHTML}</${headingLevel}>
-      <small style="color: gray;">${project.year}</small>
+      <small>${project.year}</small>
     </div>
-    <img src="${project.image}" alt="${project.title}">
     <p>${project.description}</p>
   `;
 

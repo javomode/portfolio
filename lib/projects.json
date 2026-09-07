@@ -1,75 +1,22 @@
 [
     {
-        "title": "Let's Go Biking!",
+        "title": "Wikipedia Trend Analysis Pipeline",
+        "year": "2026",
+        "description": "Personal project, ongoing. Building a production-style ELT pipeline to collect and store Wikimedia pageview data for large-scale trend analysis. Implemented append-only raw ingestion with explicit data contracts and ingestion metadata; planned extensions include dbt transformations, workflow orchestration, and machine learning for automated trend detection."
+    },
+    {
+        "title": "Character-Level Text Generation (Char-RNN)",
+        "year": "2026",
+        "description": "UCSD project. Built an LSTM-based character-level language model to generate Reddit titles from approximately 14M sequences. Developed regex cleaning, encoding, and sequence-generation preprocessing, then evaluated architectures, sequence lengths, and sampling temperatures to improve coherence while reducing overfitting."
+    },
+    {
+        "title": "Mini ETL Data Pipeline",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Interactive visualization of bike traffic around Brooklyn/Cambridge area using D3.js. Project for DSC 106 at UCSD.",
-        "url": "https://javomode.github.io/lets-go-biking/"
+        "description": "Personal project. Built a modular ETL pipeline to collect e-commerce product data with Python and SQL. Designed reusable Pandas workflows for cleaning, structuring, and loading raw data, improving maintainability through modular processing components."
     },
     {
-        "title": "Portfolio",
+        "title": "Trail Difficulty Analysis & Prediction",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "This very site is a portfolio project for DSC 106 at UCSD. It showcases various web development skills including HTML, CSS, JavaScript, and JSON data handling."
-    },
-    {
-        "title": "Platzi-pipline",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ongoing project to build a data pipeline that extracts, transforms, and loads data from various sources into a centralized data warehouse for analysis and reporting."
-    },
-    {
-        "title": "Recipe ratings from food.com",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A data analysis projject that involves scraping recipe ratings from food.com, cleaning the data, and performing exploratory data analysis to uncover trends and insights about popular recipes. Project for DSC 80 at UCSD."
-    },
-    {
-        "title": "Trail Difficulty Classification",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A machine learning project that classifies hiking trail difficulties based on various features such as elevation gain, distance, and terrain type. Utilizes algorithms like decision trees and random forests to predict trail difficulty levels. Group project for COGS 108 at UCSD"
-    },
-    {
-        "title": "Gym Tracker App",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Paused. A mobile application designed to help users track their gym workouts, set fitness goals, and monitor progress over time. Features include exercise logging, workout plans, and performance analytics. Personal project."
-    },
-    {
-        "title": "Bill Splitter App",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Paused. A web application that allows users to easily split bills among friends or roommates. Users can input expenses, assign them to individuals, and calculate each person's share, including tips and taxes. Personal project."
-    },
-    {
-        "title": "Image Alteration and Classification",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A computer vision project that involves altering images using various filters and transformations, followed by classifying the altered images using convolutional neural networks (CNNs). The project aims to explore the effects of image alterations on classification accuracy. Project for DSC 20"
-    },
-    {
-        "title": "Iure, laudantium facere. Facilis.",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Tempore dicta eligendi dolor nihil temporibus voluptatem natus corrupti quidem, unde dolorem odit repellendus beatae impedit aliquam illum aliquid totam praesentium provident repellat est explicabo veritatis harum. Fugit, blanditiis tenetur?"
-    },
-    {
-        "title": "Reiciendis necessitatibus iusto reprehenderit.",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Laudantium natus laborum, reprehenderit aliquam accusamus maiores quia temporibus ab saepe vel exercitationem facilis quod, alias obcaecati assumenda, id deserunt possimus placeat explicabo numquam quo optio voluptates eum. Sint, recusandae."
-    },
-    {
-        "title": "Sed quam beatae libero.",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Vero, dolores sequi quas similique amet ipsum, suscipit perspiciatis labore modi ad tempora ab dicta tempore id velit eveniet sit unde porro impedit consectetur ea minus deserunt quo. Dolores, assumenda."
-    },
-    {
-        "title": "Optio nostrum similique natus.",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Et iste, ullam blanditiis, consectetur aut officia eligendi illum, maxime minima dolore deleniti? Atque sed ad distinctio nemo voluptas sunt, reiciendis aut molestiae reprehenderit inventore eum corrupti? Perspiciatis, exercitationem ex!"
+        "description": "UCSD project. Built an end-to-end machine learning pipeline to classify hiking trail difficulty using 3,000+ US trails, including preprocessing, feature selection, and model evaluation. Engineered features such as trail gradient and tuned Logistic Regression and Random Forest models."
     }
 ]
