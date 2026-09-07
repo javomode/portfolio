@@ -63,6 +63,41 @@ nav a.current::after {
   transform: scaleX(1);
 }
 
+/* =================== Home Page =================== */
+.home-intro {
+  max-width: 38rem;
+  font-size: 1.25rem;
+}
+
+.home-links {
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  border-bottom: 0;
+}
+
+.home-links a {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid oklch(65% 13% 190 / 60%);
+  border-radius: 0.35rem;
+}
+
+.featured-project {
+  max-width: 52rem;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  border-left: 4px solid oklch(65% 13% 190);
+  background: oklch(96% 3% 190 / 35%);
+}
+
+.featured-project h2 {
+  margin-top: 0;
+}
+
+.featured-project a {
+  font-weight: 700;
+}
+
 /* =================== Forms =================== */
 form {
   display: grid;
