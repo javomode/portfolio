@@ -217,24 +217,47 @@ h6 {
 }
 
 /* =================== Resume Section =================== */
+main.resume {
+  max-width: 58rem;
+  margin: 3rem auto;
+}
+
+main.resume .resume-heading {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid oklch(65% 13% 190);
+}
+
+main.resume .resume-heading h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+main.resume .resume-heading p:last-child {
+  max-width: 46rem;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
 main.resume section {
-  margin-bottom: 2em;
+  margin-bottom: 2.5rem;
 }
 
 main.resume section h2 {
-  font-size: 200%;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid oklch(65% 13% 190 / 55%);
+  color: oklch(45% 14% 190);
+  font-size: 1.65rem;
 }
 
 main.resume section h3 {
-  font-size: 130%;
+  font-size: 1.15rem;
 }
 
 main.resume section article {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 0.5em;
-  padding: 0.5em 0;
-  border-bottom: 1px solid #ccc;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid oklch(75% 3% 200 / 45%);
 }
 
 main.resume section article h3 {
@@ -242,13 +265,28 @@ main.resume section article h3 {
 }
 
 main.resume section article time {
+  display: block;
   font-size: 0.9em;
-  color: #555;
+  color: oklch(45% 5% 200);
 }
 
 main.resume section article ul {
   padding-left: 1.2em;
-  margin: 0.5em 0;
+  margin: 0.75rem 0 0.25rem;
+}
+
+main.resume section article p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 40rem) {
+  main.resume {
+    margin: 2rem 1rem;
+  }
+
+  main.resume .resume-heading {
+    margin-bottom: 2rem;
+  }
 }
 
 /* =================== Color Scheme Selector =================== */
